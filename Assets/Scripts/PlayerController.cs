@@ -5,22 +5,26 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
-    // AudioSource src;
-    // public AudioClip sound;
+    AudioSource src;
+    public AudioClip sound1;
+    public AudioClip sound2;
+    public AudioClip sound3;
     public TMP_Text objectiveText;
 
     void Start () 
     {
-        // src = GetComponent<AudioSource>();
+        src = GetComponent<AudioSource>();
         objectiveText.text = "Objective: Give the mannequin the three items";
     }
-
     private void OnTriggerEnter(Collider other) 
     {
         if (other.CompareTag("Collectible")) 
         {
             GameData.points++;
-            // src.PlayOneShot(sound);
+            if (GameData.points == 3) {
+                objectiveText.text = "Objective: Go to the mannequin";
+            }
+            src.PlayOneShot(GameData.points == 1 ? sound1 : GameData.points == 2 ? sound2 : sound3);
             GameData.destination = other.transform.position;
             Destroy(other.gameObject);
         }
