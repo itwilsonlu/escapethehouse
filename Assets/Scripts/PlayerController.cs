@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
         {
             GameData.points++;
             // src.PlayOneShot(sound);
+            GameData.destination = other.transform.position;
             Destroy(other.gameObject);
         }
         if (GameData.points == 3 && other.CompareTag("NPC")) {
