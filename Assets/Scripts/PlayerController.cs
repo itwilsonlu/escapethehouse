@@ -25,7 +25,8 @@ public class PlayerController : MonoBehaviour
                 objectiveText.text = "Objective: Go to the mannequin";
             }
             src.PlayOneShot(GameData.points == 1 ? sound1 : GameData.points == 2 ? sound2 : sound3);
-            GameData.destination = other.transform.position;
+            GameData.destination = transform.position;
+            Debug.Log("Game Data: " + GameData.destination);
             Destroy(other.gameObject);
         }
         if (GameData.points == 3 && other.CompareTag("NPC")) {

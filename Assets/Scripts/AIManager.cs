@@ -7,7 +7,6 @@ public class AIManager : MonoBehaviour
     UnityEngine.AI.NavMeshAgent agent;
     GameObject player;
     Vector3 destination;
-    bool goingToSound = false;
     
     // Start is called before the first frame update
     public float range = 40.0f;
@@ -38,13 +37,9 @@ public class AIManager : MonoBehaviour
     {
 
         if (GameData.destination != Vector3.zero) {
-            if (goingToSound) {
-                if (agent.remainingDistance == 0) {
-                    goingToSound = false;
-                    GameData.destination = Vector3.zero;
-                }
+            if (agent.remainingDistance == 0) {
+                GameData.destination = Vector3.zero;
             } else {
-                goingToSound = true;
                 agent.destination = GameData.destination;
             }
         } else {
