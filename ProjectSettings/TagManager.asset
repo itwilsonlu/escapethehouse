@@ -8,6 +8,10 @@ TagManager:
   - AI
   - Fire
   - NPC
+  - BlueBall
+  - RedBall
+  - YellowBall
+  - GreenBall
   layers:
   - Default
   - TransparentFX
