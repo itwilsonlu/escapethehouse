@@ -50,6 +50,8 @@ public class PlayerController2 : MonoBehaviour
             objectiveText.text = "Objective: Escape";
             Destroy(other.gameObject);
             hasDestroyed = true;
+            objectiveText.text = "Objective: Avoid the monster and escape";
+            Instantiate(Enemy, spawnPoint.position, spawnPoint.rotation);
         }
         if (other.CompareTag("NPC") && hasDestroyed == true) {
             objectiveText.text = "";
@@ -57,11 +59,6 @@ public class PlayerController2 : MonoBehaviour
         }
         else if (other.CompareTag("NPC") && hasDestroyed == false) {
             objectiveText.text = "NPC: You're missing the lie to this maze";
-        }
-        if (other.CompareTag("EnemyTrigger") && hasDestroyed == true) {
-            objectiveText.text = "Objective: Avoid the monster and escape";
-            Instantiate(Enemy, spawnPoint.position, spawnPoint.rotation);
-
         }
         if (other.CompareTag("AI")) {
             UnityEngine.SceneManagement.SceneManager.LoadScene("Lose");
