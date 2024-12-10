@@ -12,6 +12,11 @@ TagManager:
   - RedBall
   - YellowBall
   - GreenBall
+  - FakeWall
+  - WallTrigger
+  - WallTrigger2
+  - WallTrigger3
+  - Key
   layers:
   - Default
   - TransparentFX
