@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class PlayerController2 : MonoBehaviour
 {
     public TMP_Text objectiveText;
+    public Image jumpscare;
     public Transform spawnPoint;
     public GameObject Enemy;
 
@@ -13,14 +15,17 @@ public class PlayerController2 : MonoBehaviour
     bool hasTriggered2 = false;
     bool hasTriggered3 = false;
     bool hasDestroyed = false;
-
-
-
+    AudioSource src;
+    public AudioClip jumpscareSound;
+    float counter = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        src = GetComponent<AudioSource>();
         objectiveText.text = "Objective: Escape";
+        jumpscare.enabled = false;
+        counter = 0;
     }
 
     // Update is called once per frame
@@ -28,6 +33,14 @@ public class PlayerController2 : MonoBehaviour
     {
         if (GameData.balls == 4) {
             Destroy(GameObject.FindGameObjectWithTag("FakeWall"));
+        }
+        if (jumpscare.enabled) {
+            Debug.Log("Jumpscare");
+            if (counter >= 2) {
+                UnityEngine.SceneManagement.SceneManager.LoadScene("Lose");
+            }
+            counter += Time.deltaTime;
+            Debug.Log(counter);
         }
     }
 
@@ -61,7 +74,8 @@ public class PlayerController2 : MonoBehaviour
             objectiveText.text = "NPC: You're missing the lie to this maze";
         }
         if (other.CompareTag("AI")) {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Lose");
+            jumpscare.enabled = true;
+            src.PlayOneShot(jumpscareSound);
         }
     }
 }

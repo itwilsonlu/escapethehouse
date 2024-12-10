@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
         }
         if (other.CompareTag("AI")) 
         {
+            
             UnityEngine.SceneManagement.SceneManager.LoadScene("Lose");
         }
     }
