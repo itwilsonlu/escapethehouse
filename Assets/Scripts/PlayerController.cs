@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
 
     void Start () 
     {
+        GameData.points = 0;
         src = GetComponent<AudioSource>();
         objectiveText.text = "Objective: Give the mannequin the three items";
     }
