@@ -22835,8 +22835,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Objective: Give the mannequin the three items'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: aa2b21e0906f94e54b28a05c072c8697, type: 2}
+  m_sharedMaterial: {fileID: 9082275568884771414, guid: aa2b21e0906f94e54b28a05c072c8697, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
